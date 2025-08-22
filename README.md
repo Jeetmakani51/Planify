@@ -1,5 +1,11 @@
 Planify is a lightweight productivity app that brings together a to-do list, planner, and notes into one clean interface. It’s built to be fast, distraction-free, and easy to use, so you can focus on what really matters.
 
+**IMPORTANT**
+THIS APP IS ONLY DESIGNED FOR MOBILE,
+YOU WILL ONLY BE ABLE TO USE IT IN MOBILE,
+YOU CAN ALSO DOWNLOAD IT IN LAPTOP BUT IT MAY NOT WORK PROPERLY.
+THANK YOU.
+
 ✨ Features
 
 ✔️ To-Do List – Add, edit, and mark tasks as done
@@ -39,3 +45,4 @@ Open the live site in Chrome/Edge/Brave.
 Click the Install App / Add to Home Screen option in your browser menu.
 
 Planify will now work like a native app on your device! 📱💻
+
