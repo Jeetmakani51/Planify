@@ -24,6 +24,8 @@ THANK YOU.
 
 📥 How to Download & Use
 
+**IF THE BELOW 2 STEPS DONT WORK, GO TO STEP 3, IT WILL DEFINITELY WORK**
+
 You can use Planify in two ways:
 
 🔹 1. Run directly from GitHub
@@ -45,4 +47,16 @@ Open the live site in Chrome/Edge/Brave.
 Click the Install App / Add to Home Screen option in your browser menu.
 
 Planify will now work like a native app on your device! 📱💻
+
+### Step 3 (Alternative way to install)
+If the above steps don't work, you can also access the app directly from the hosted link below:
+
+👉 [Live App Link](https://yourusername.github.io/your-repo-name/)
+
+1. Open the link in **Google Chrome** (or any PWA-supported browser).  
+2. Click on the **three dots menu** (⋮) in the top-right corner.  
+3. Select **"Install App"** (or **"Add to Home Screen"** on mobile).  
+4. The app will be installed on your device like a normal application. 🚀
+
+
 
