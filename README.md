@@ -51,12 +51,13 @@ Planify will now work like a native app on your device! 📱💻
 ### Step 3 (Alternative way to install)
 If the above steps don't work, you can also access the app directly from the hosted link below:
 
-👉 [Live App Link](https://yourusername.github.io/your-repo-name/)
+👉 [Live App Link](https://jeetmakani51.github.io/Planify/)
 
 1. Open the link in **Google Chrome** (or any PWA-supported browser).  
 2. Click on the **three dots menu** (⋮) in the top-right corner.  
 3. Select **"Install App"** (or **"Add to Home Screen"** on mobile).  
 4. The app will be installed on your device like a normal application. 🚀
+
 
 
 
