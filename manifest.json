@@ -2,7 +2,7 @@
   "name": "Planify",
   "short_name": "Planify",
   "description": "A simple and engaging productivity app.",
-  "start_url": "./index.html",
+  "start_url": "index.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#ff6347",
