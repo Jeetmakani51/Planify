@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibe Code</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" type="image/png" href="tomato-favicon.png">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body style = background-color:#0D0D1A>
+    <aside class = "Sidebar">
+        <nav>
+            <ul>
+                <li><i class="fa-solid fa-house"></i>Home</li>
+                <li><i class="fa-solid fa-circle-check"></i>To-Do</li>
+                <li><i class="fa-solid fa-calendar"></i>Pomodoro</li>
+                <li><i class="fa-solid fa-note-sticky"></i>Notes</li>
+                <li><i class="fa-solid fa-chart-simple"></i>Habits</li>
+                <li><i class="fa-solid fa-bullseye"></i>Reminders</li>
+                <li><i class="fa-solid fa-gear"></i>Setting</li>
+            </ul>
+        </nav>
+    </aside>
+    <div class = "main-content">
+        <h2>To-Do</h2>
+        <form id="todo-form">
+            <input type="text" id="todo-input" placeholder="Add a new task..." required>
+            <input type="date" id="todo-deadline">
+            <input type="time" id="todo-reminder">
+            <select id="todo-priority">
+                <option value="low">Low</option>
+                <option value="medium" selected>Medium</option>
+                <option value="high">High</option>
+            </select>
+            <button type="submit">Add</button>
+        </form>
+        <ul id="todo-list"></ul>
+
+        <section id="pomodoro-section">
+            <h2>⏳ Pomodoro Timer</h2>
+            <div id="pomodoro-timer">25:00</div>
+        
+            <div id="pomodoro-controls">
+                <button id="start-timer">▶ Start</button>
+                <button id="pause-timer">⏸ Pause</button>
+                <button id="reset-timer">⏹ Reset</button>
+            </div>
+        
+            <div id="pomodoro-status">Work Time</div>
+        
+            <div id="xp-container">
+                <div id="xp-bar"></div>
+            </div>
+            <p id="xp-text">Level 1 - XP: 0 / 100</p>
+        </section>
+        
+        
+            <!-- Notes Section HTML -->
+        <h2>Notes</h2>
+        <form id="pdf-upload-form">
+            <label for="pdf-input" style="font-weight:bold;">Upload PDF:</label>
+            <input type="file" id="pdf-input" accept="application/pdf,image/*" multiple>
+        </form>
+        <div id="notes-gallery" style="display:flex;flex-wrap:wrap;gap:16px;margin-top:18px;"></div>
+
+        <div class="habits-section">
+           <h2>Habits</h2>
+
+            <!-- Add Habit Form -->
+           <form id="habit-form">
+           <input type="text" id="habit-name" placeholder="Enter habit" required>
+           <select id="habit-frequency">
+               <option value="Daily">Daily</option>
+               <option value="Weekly">Weekly</option>
+               <option value="Custom">Custom</option>
+           </select>
+           <button type="submit" class="btn btn-add">Add Habit</button>
+           </form>
+
+          <!-- Habit List -->
+           <div id="habit-list"></div>
+        </div>
+
+        <section id="reminders-section">
+            <h2>⏰ Reminders</h2>
+            <form id="reminder-form">
+                <input type="text" id="reminder-text" placeholder="Reminder text" required>
+                <input type="datetime-local" id="reminder-time" required>
+                <button type="submit">Add Reminder</button>
+            </form>
+            <ul id="reminder-list"></ul>
+        </section>
+        
+        <!-- 📌 Home Section -->
+        
+        <!-- HOME / Dashboard -->
+        <section id="home" class="dashboard">
+            
+         <h2 id="greeting">Good Morning!</h2>
+
+         <!-- Quick Stats -->
+         <div class="stats">
+                <div class="stat-card">
+                  <h3>✅ Tasks</h3>
+                  <p id="tasks-completed">0/0</p>
+                </div>
+                <div class="stat-card">
+                   <h3>⏳ Pomodoro</h3>
+                    <p id="pomodoro-done">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>🔥 Streak</h3>
+                    <p id="habit-streak">0 days</p>
+                </div>
+                <div class="stat-card">
+                    <h3>⏰ Next Reminder</h3>
+                    <p id="next-reminder">No reminders</p>
+                </div>
+         </div>
+
+          <!-- Motivational Quote -->
+         <div class="quote-box">
+             <blockquote id="daily-quote">"Stay focused, stay strong."</blockquote>
+         </div>
+        </section>
+
+        <section id="settings" class="dashboard">
+  <h2>⚙️ Settings</h2>
+
+  <!-- Theme Selector -->
+  <div class="setting-item">
+    <label for="theme-select">🎨 Theme</label>
+    <select id="theme-select">
+      <option value="dark">Dark</option>
+      <option value="light">Light</option>
+    </select>
+  </div>
+
+  <!-- Default Pomodoro Times -->
+  <div class="setting-item">
+    <label for="pomodoro-time">🍅 Default Work Time (minutes)</label>
+    <input type="number" id="pomodoro-time" min="1" max="180">
+  </div>
+
+  <div class="setting-item">
+    <label for="break-time">☕ Default Break Time (minutes)</label>
+    <input type="number" id="break-time" min="1" max="60">
+  </div>
+
+  <!-- Reset Button -->
+  <div class="setting-item">
+    <button id="reset-data-btn">⚠️ Reset All Data</button>
+  </div>
+</section>
+
+
+
+    </div>
+
+
+</body>
+<script src="script.js"></script>
+</html>
