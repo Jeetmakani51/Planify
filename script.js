@@ -617,7 +617,7 @@ window.pomodoro = setupPomodoro();
 
 
 
-function setupNotes() {
+/*function setupNotes() {
     const notesInput = document.getElementById('pdf-input');
     const notesGallery = document.getElementById('notes-gallery');
     let allFiles = [];
@@ -670,6 +670,87 @@ function setupNotes() {
             item.querySelector('.delete-note-btn').addEventListener('click', (e) => {
                 e.stopPropagation();
                 allFiles.splice(idx, 1);
+                renderGallery();
+            });
+
+            notesGallery.appendChild(item);
+        });
+    }
+}*/
+
+function setupNotes() {
+    const notesInput = document.getElementById('pdf-input');
+    const notesGallery = document.getElementById('notes-gallery');
+    let allFiles = JSON.parse(localStorage.getItem("notesFiles") || "[]"); // load from storage
+
+    if (!notesInput || !notesGallery) return;
+
+    // Render existing saved files when loading
+    renderGallery();
+
+    notesInput.addEventListener('change', function () {
+        const files = Array.from(notesInput.files);
+
+        // Convert each file to base64 so it can be stored
+        files.forEach(file => {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                allFiles.push({
+                    name: file.name,
+                    type: file.type,
+                    data: e.target.result  // base64 string
+                });
+                localStorage.setItem("notesFiles", JSON.stringify(allFiles));
+                renderGallery();
+            };
+            reader.readAsDataURL(file);
+        });
+
+        notesInput.value = "";
+    });
+
+    function renderGallery() {
+        notesGallery.innerHTML = "";
+        allFiles.forEach((file, idx) => {
+            let item = document.createElement('div');
+            item.style.display = "inline-block";
+            item.style.margin = "8px";
+            item.style.cursor = "pointer";
+            let innerHTML = "";
+
+            if (file.type.startsWith("image/")) {
+                innerHTML = `
+                    <img src="${file.data}" alt="${file.name}" style="width:120px;height:120px;object-fit:cover;border-radius:10px;box-shadow:0 2px 12px #e2cfa544;">
+                    <div style="text-align:center;color:#a67c52;font-size:0.95em;">${file.name}</div>
+                `;
+            } else if (file.type === "application/pdf") {
+                innerHTML = `
+                    <div style="width:120px;height:120px;display:flex;align-items:center;justify-content:center;background:#fffbe9;border-radius:10px;box-shadow:0 2px 12px #e2cfa544;">
+                        <i class="fa-solid fa-file-pdf" style="font-size:48px;color:#a67c52;"></i>
+                    </div>
+                    <div style="text-align:center;color:#a67c52;font-size:0.95em;">${file.name}</div>
+                `;
+            }
+
+            // Add delete button
+            innerHTML += `
+                <button class="delete-note-btn" style="display:block;margin:6px auto 0 auto;padding:4px 12px;border-radius:6px;background:#ff5e5b;color:#fff;border:none;cursor:pointer;font-size:0.95em;">Delete</button>
+            `;
+
+            item.innerHTML = innerHTML;
+
+            // Open file in new tab when clicking thumbnail
+            if (file.type.startsWith("image/")) {
+                item.querySelector('img').addEventListener('click', () => window.open(file.data, "_blank"));
+            } else if (file.type === "application/pdf") {
+                item.querySelector('.fa-file-pdf').addEventListener('click', () => window.open(file.data, "_blank"));
+            }
+
+            // Delete file
+            item.querySelector('.delete-note-btn').addEventListener('click', (e) => {
+                e.stopPropagation();
+                allFiles.splice(idx, 1);
+                localStorage.setItem("notesFiles", JSON.stringify(allFiles));
                 renderGallery();
             });
 
