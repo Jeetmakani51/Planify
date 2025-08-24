@@ -1021,8 +1021,11 @@ function setupHome() {
         pomoEl.textContent = pomodoroCount;
 
         // --- HABIT STREAK ---
-        let streak = parseInt(localStorage.getItem("habitStreak")) || 0;
-        streakEl.textContent = streak;
+        //let streak = parseInt(localStorage.getItem("habitStreak")) || 0;
+        //streakEl.textContent = streak;
+        let habits = JSON.parse(localStorage.getItem("habits") || "[]");
+        let totalStreak = habits.reduce((sum, h) => sum + (h.streak || 0), 0);
+        streakEl.textContent = totalStreak;
 
         // --- REMINDERS ---
         /*let reminders = JSON.parse(localStorage.getItem("reminders") || "[]");
